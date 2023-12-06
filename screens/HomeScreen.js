@@ -62,7 +62,7 @@ export default function HomeScreen({ navigation }) {
     if (auth.currentUser != null) {
       return (
         <View>
-          <Text style={styles.subHeader}>Already Signed In, Proceed to your profile</Text>
+          <Text style={styles.subHeader}>You are already signed in, view your account.</Text>
           <Button
             style={styles.buttons}
             mode={"contained"}
@@ -70,7 +70,7 @@ export default function HomeScreen({ navigation }) {
               navigation.navigate("Details", auth);
             }}
           >
-            Details
+            Account Details
           </Button>
         </View>
       );
@@ -158,7 +158,6 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: "center",
     backgroundColor: "#F0B67F",
-    // marginTop: 200,
     borderRadius: 10
   },
   containerWrapper: {
