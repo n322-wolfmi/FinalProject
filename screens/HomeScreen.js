@@ -62,7 +62,9 @@ export default function HomeScreen({ navigation }) {
     if (auth.currentUser != null) {
       return (
         <View>
-          <Text style={styles.subHeader}>You are already signed in, view your account.</Text>
+          <Text style={styles.subHeader}>
+            You are already signed in, view your account.
+          </Text>
           <Button
             style={styles.buttons}
             mode={"contained"}
@@ -158,11 +160,11 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: "center",
     backgroundColor: "#F0B67F",
-    borderRadius: 10
+    borderRadius: 10,
   },
   containerWrapper: {
     backgroundColor: "#353535",
-    padding: 10
+    padding: 10,
   },
   inputsContainer: {
     padding: 10,

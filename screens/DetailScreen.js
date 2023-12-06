@@ -13,15 +13,13 @@ export default function DetailScreen({ navigation, route }) {
   let auth = route.params;
   let user = auth.currentUser;
 
-  const [verifyEnable, setVerifyEnable] = useState(false);
+  const [verifyEnable, setVerifyDisable] = useState(false);
   const [verifyText, setVerifyText] = useState("Verify Email");
   const [errorMsg, setErrorMsg] = useState();
   const [uName, setUName] = useState();
   const [email, setEmail] = useState();
-  const [inputUserName, setInputUserName] = useState(
-    auth.currentUser.displayName
-  );
-  const [inputEmail, setInputEmail] = useState(auth.currentUser.email);
+  const [inputUserName, setInputUserName] = useState(user.displayName);
+  const [inputEmail, setInputEmail] = useState(user.email);
   const [inputPw, setInputPw] = useState();
   const [visible, setVisible] = useState(false);
   const showModal = () => setVisible(true);
@@ -72,6 +70,8 @@ export default function DetailScreen({ navigation, route }) {
   const verify = () => {
     sendEmailVerification(user)
       .then(() => {
+        setVerifyText("Email Sent!");
+        setVerifyDisable(true);
         console.log("sent");
       })
       .catch((error) => {
@@ -84,7 +84,7 @@ export default function DetailScreen({ navigation, route }) {
     setEmail(user.email);
     if (user.emailVerified === true) {
       setVerifyText("Email Verified!");
-      setVerifyEnable(true);
+      setVerifyDisable(true);
     }
   });
 
